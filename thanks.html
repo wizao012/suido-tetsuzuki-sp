@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>お申込みありがとうございました｜東京都 水道手続き窓口</title>
+
+  <style>
+    :root {
+      --green: #007a53;
+      --green-dark: #005f40;
+      --green-deep: #004c34;
+      --green-soft: #edf5f0;
+      --green-pale: #f5faf7;
+      --line: #cddbd5;
+      --line-light: #e3ebe7;
+      --text: #1f2a32;
+      --muted: #5c6870;
+      --bg: #eef3f0;
+    }
+
+    * { box-sizing: border-box; }
+    html { overflow-x: hidden; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .app {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: #fff;
+      border-bottom: 3px solid var(--green);
+    }
+
+    .header__inner {
+      height: 60px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand__mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--green);
+      display: grid;
+      place-items: center;
+      background: #fff;
+    }
+
+    .brand__mark img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .brand__name {
+      color: var(--green-deep);
+      font-size: 15.5px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .main {
+      flex: 1;
+      padding: 36px 18px 40px;
+    }
+
+    .check {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff;
+    }
+
+    .check svg {
+      width: 38px;
+      height: 38px;
+      stroke: var(--green);
+    }
+
+    .title {
+      margin: 0 0 8px;
+      text-align: center;
+      color: var(--green-deep);
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+    }
+
+    .subtitle {
+      margin: 0 0 26px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.85;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: #fff;
+      margin-bottom: 18px;
+    }
+
+    .panel__head {
+      padding: 11px 14px;
+      background: var(--green-soft);
+      border-bottom: 1px solid var(--line);
+      color: var(--green-deep);
+      font-size: 14.5px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    .panel__body {
+      padding: 16px 14px;
+    }
+
+    .steps-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: step;
+    }
+
+    .steps-list li {
+      position: relative;
+      padding: 12px 0 12px 38px;
+      border-bottom: 1px solid var(--line-light);
+      font-size: 13.5px;
+      line-height: 1.7;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .steps-list li:last-child { border-bottom: 0; }
+
+    .steps-list li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 26px;
+      height: 26px;
+      background: var(--green);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 12.5px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .steps-list strong {
+      display: block;
+      color: var(--green-deep);
+      font-weight: 900;
+      font-size: 14px;
+      margin-bottom: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .phone-box {
+      text-align: center;
+    }
+
+    .phone-box__free {
+      display: inline-block;
+      margin: 0 0 10px;
+      padding: 2px 10px;
+      border: 1px solid var(--green);
+      color: var(--green-deep);
+      font-size: 11.5px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .phone-box__number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      max-width: 320px;
+      min-height: 56px;
+      margin: 0 auto;
+      border: 2px solid var(--green-deep);
+      background: #fff;
+      color: var(--green-deep);
+      font-size: 26px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      box-shadow: 0 3px 0 rgba(0, 95, 64, 0.18);
+    }
+
+    .phone-box__number img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    .phone-box__hours {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .notice {
+      padding: 12px 14px;
+      background: var(--green-pale);
+      border: 1px solid var(--line-light);
+      color: var(--text);
+      font-size: 12.5px;
+      line-height: 1.85;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .home-btn {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 14px 36px 14px 16px;
+      background: #fff;
+      border: 1.5px solid var(--green-deep);
+      color: var(--green-deep);
+      text-align: center;
+      font-size: 14.5px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .home-btn__arrow {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+      font-weight: 300;
+    }
+
+    .footer {
+      padding: 22px 16px 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+      border-top: 1px solid var(--line-light);
+    }
+  </style>
+</head>
+<body>
+  <div class="app" data-screen-label="サンクスページ">
+
+    <header class="header">
+      <div class="header__inner">
+        <a href="index.html" class="brand">
+          <span class="brand__mark"><img src="images/icon-tap.png" alt="" /></span>
+          <span class="brand__name">東京都 水道手続き窓口</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <div class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 12 10 18 20 6"></polyline>
+        </svg>
+      </div>
+
+      <h1 class="title">お申込み<br />ありがとうございました</h1>
+      <p class="subtitle">
+        水道の使用開始手続きのお申込みを<br />
+        受け付けいたしました。
+      </p>
+
+      <div class="panel">
+        <div class="panel__head">今後の流れ</div>
+        <div class="panel__body">
+          <ol class="steps-list">
+            <li>
+              <strong>担当者よりお電話</strong>
+              ご入力いただいた電話番号宛に、当窓口の担当者よりお電話いたします。
+            </li>
+            <li>
+              <strong>内容の確認</strong>
+              お引越し先のご住所・使用開始日など、お手続きに必要な内容を確認させていただきます。
+            </li>
+            <li>
+              <strong>使用開始手続き</strong>
+              確認内容をもとに、各水道局への使用開始手続きを代行いたします。
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__head">お急ぎの場合はお電話ください</div>
+        <div class="panel__body phone-box">
+          <p class="phone-box__free">通話料無料</p>
+          <a href="tel:0800-000-0000" class="phone-box__number">
+            <img src="images/icon-footer-phone.png" alt="" />
+            0800-000-0000
+          </a>
+          <p class="phone-box__hours">受付時間：10:00〜19:00（土日祝OK・年末年始を除く）</p>
+        </div>
+      </div>
+
+      <p class="notice">
+        ※お申込み時間帯や混雑状況によっては、ご連絡が翌営業日となる場合がございます。<br />
+        ※ご入力内容に不備があった場合、確認のためご連絡いたします。
+      </p>
+
+      <a href="index.html" class="home-btn">
+        トップページへ戻る
+        <span class="home-btn__arrow">›</span>
+      </a>
+    </main>
+
+    <footer class="footer">
+      本サイトは水道使用開始手続きの代理店窓口です。<br />
+      お客様の代理として各水道局への申込手続きを行います。<br />
+      © 東京都 水道手続き窓口
+    </footer>
+  </div>
+</body>
+</html>
